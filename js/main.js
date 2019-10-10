@@ -1,6 +1,7 @@
 let LIST_ITEMS = {};
 let ITEMS_ARRAY = [];
 let ITEM_ID = 0;
+
 function fetchLocalData() {
     let temp = localStorage.getItem("todos");
     if (temp != null) {
@@ -19,8 +20,6 @@ class Input {
         this.delete = false;
     }
 }
-// let item = JSON.parse(localStorage.getItem("todos", LIST_ITEMS));
-// console.log({ item });
 
 function storeInput(e) {
     if (e.keyCode === 13) {
@@ -54,6 +53,8 @@ function populateTable() {
                 let table_item = document.createElement("td");
                 let complete_checkbox = document.createElement("input")
                 complete_checkbox.setAttribute("type", "checkbox");
+                complete_checkbox.setAttribute("id", j);
+                complete_checkbox.addEventListener("change", checkCompleted);
                 table_item.appendChild(complete_checkbox);
                 table_row.appendChild(table_item);
             } else if (i == 1) {
@@ -67,7 +68,8 @@ function populateTable() {
             } else if (i == 2) {
                 let table_item = document.createElement("td");
                 let delete_button = document.createElement("button");
-                // delete_button.setAttribute("class","close");
+                delete_button.setAttribute("class", "btn btn-light text-secondary px-1 py-0");
+                delete_button.innerHTML = "X";
 
                 table_item.appendChild(delete_button);
                 table_row.appendChild(table_item);
@@ -79,4 +81,11 @@ function populateTable() {
     let row = document.getElementById("list_row");
     row.innerHTML = "";
     row.appendChild(table_main);
+}
+
+function checkCompleted(e) {
+    if (document.getElementById(e.target.id).checked){
+        console.log("checked!");
+
+    }
 }

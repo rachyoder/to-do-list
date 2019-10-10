@@ -32,10 +32,33 @@ function init() {
 
             input_col.appendChild(input_text);
             input_row.appendChild(input_col);
-            // list_row.appendChild(table);
             APP.appendChild(input_row);
             APP.appendChild(list_row);
-        } 
+        } else if (i == 2) {
+            let btn_row = document.createElement("div");
+            let btn_group = document.createElement("div");
+            btn_group.setAttribute("class", "btn-group mx-auto");
+            btn_group.setAttribute("role", "group");
+            for (let j = 0; j < 3; j++) {
+                let btn = document.createElement("button");
+                btn.setAttribute("class", "btn btn-secondary");
+                if (j == 0) {
+                    btn.setAttribute("id", "btn_all");
+                    btn.innerHTML = "ALL";
+                } else if (j == 1) {
+                    btn.setAttribute("id", "btn_completed");
+                    btn.innerHTML = "COMPLETED";
+                } else {
+                    btn.setAttribute("id", "btn_active");
+                    btn.innerHTML = "ACTIVE";
+                }
+                btn_group.appendChild(btn);
+            }
+            btn_row.setAttribute("class", "row");
+            btn_row.appendChild(btn_group);
+            APP.appendChild(btn_row);
+
+        }
         
     }
     fetchLocalData();
