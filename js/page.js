@@ -8,8 +8,8 @@ function init() {
             let title_row = document.createElement("div");
             let title_col = document.createElement("div");
             title_row.setAttribute("class", "row");
-            title_col.setAttribute("class", "col-12 display-4 text-center");
-            title_col.innerHTML = "To-<span class='text-muted'>Dos</span>"
+            title_col.setAttribute("class", "col-12 h1 display-4 text-center");
+            title_col.innerHTML = "RAPID TASK <span class='text-muted'><strong>SWITCHING</strong></span>"
             title_row.appendChild(title_col);
             CONTAINER.appendChild(title_row);
             APP.appendChild(CONTAINER);
@@ -58,6 +58,7 @@ function init() {
                     btn.setAttribute("id", "btn_active");
                     btn.innerHTML = "ACTIVE";
                 }
+                btn.addEventListener("click", changeTableDisplay);
                 btn_group.appendChild(btn);
             }
             btn_row.setAttribute("class", "row");

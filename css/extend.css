@@ -6,3 +6,8 @@
     line-height: 60px;
     background-color: #f5f5f5;
 }
+
+html, body {
+    font-family: 'Nova Mono', monospace !important;
+    background-color: #fff9e6;
+}
